@@ -1,0 +1,108 @@
+﻿body {
+  margin: 0;
+}
+
+.logo{
+	width: 323px;
+	padding: 10px;
+	margin: 0;
+}
+
+.header {
+  background-color: #37474f;
+  padding-left: 0.5%;
+}
+
+input[type=button]:focus{
+    outline:none;
+}
+
+#btnsettings:focus, #btnlogout:focus{
+    outline:none;
+}
+
+#btnsettings, #btnlogout{
+    border-radius:8px; 
+    border:0px; 
+    padding: 5px; 
+    cursor:pointer;
+}
+
+/* Style the navbar */
+#navbar {
+  overflow: hidden;
+  background-color: #37474f;
+}
+
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+.sidenav {
+    width: 10%;
+    position: fixed;
+    z-index: 1;
+    top: 20.5%;
+    left: 0px;
+    background: #333;
+    overflow-x: hidden;
+    padding: 8px 0;
+    opacity: 0.9;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #2196F3;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: white;
+}
+
+.main {
+    margin-left: 140px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+.footer{
+    height: 250px;
+    width:100%;
+    background-color:#19696F;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}

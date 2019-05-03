@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageAdmin.master.cs" Inherits="MasterPageAdmin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        body{
+            margin:0;
+            background-color:#455A64;
+        }
+        .logo{
+	        width: 25%;
+	        padding: 5px;
+    	    margin: 0%;
+        }
+        div[class="menu"] a{
+            padding:5px;
+            text-decoration:none;
+            color:white;
+            font-weight:bold;
+            width:100%;
+            font-family:'Times New Roman';
+            font-size:12pt;
+        }
+        .btnlogout{
+            padding:5px;
+            color:white;
+            font-weight:bold;
+            background-color:transparent; 
+            outline:none; 
+            border:none; 
+            cursor:pointer;
+            font-family:'Times New Roman';
+            font-size:12pt;
+        }
+        div[class="menu"] a:hover{
+            color:#CDDC39;
+        }
+        .btnlogout:hover{
+            color:#CDDC39;
+        }
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <body>
+    <form id="form1" runat="server">
+    <div>
+        <img src="images/logo.png" class="logo" />
+    </div>
+    <br /><br />
+        <table style="width:100%;">
+            <tr>
+                <td style="width:15%; vertical-align:top;">
+                    <div class="menu">
+                        <a href="admin.aspx">Start / Stop SMS</a><br />
+                        <asp:Button runat="server" ID="btnlogout" CssClass="btnlogout" Text="Log Out" OnClick="btnlogout_Click" />
+                    </div>
+                </td>
+                <td style="width:70%;">
+                    <div style="background-color:white; border-radius:6px; padding:20px;">
+                        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
+                <td style="width:15%;"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</body>
+</html>

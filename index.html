@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Scheduleit - Schedule your work, birthday, anniversary, party etc.</title>
+    <link rel="shortcut icon" href="/icons/icon.png" />
+	<meta charset="utf-8" />
+    <style type="text/css">
+        body{
+            margin:0;
+        }
+        .logo{
+	        width: 323px;
+	        padding: 5px;
+    	    margin: 0%;
+        }
+        .quote{
+            font-family:'Helvetica';
+            font-size:50pt;
+            color:white;
+            background-color:black;
+            opacity:0.5;
+            width:70%;
+            border-radius:15px;
+            padding:15px;
+        }
+        .btnface{
+            width:20%;
+            height:50px;
+            border-width:0px;
+            background-color:white;
+            border-color:white;
+            color:black;
+            font-size:20px;
+            font-family:'Calibri';
+            font-weight:bold;
+            cursor:pointer;
+        }
+        input[class="btnface"]:hover{
+            background-color:transparent;
+            color:white;
+            border-width:3px;
+        }
+        input[type=button]:focus{
+            outline:none;
+        }
+
+        .containerbox{
+            height:220px;
+            width: 220px;
+            position: relative;
+        }
+        .innercard:hover{
+    	    transform: rotateY(180deg);
+    	    -webkit-transform: rotateY(180deg);
+        }
+        .innercard{
+    	    position: absolute;
+    	    height: 100%;
+    	    width: 100%;
+    	    transform-style: preserve-3d;
+    	    transition: all 1s ease;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            cursor: pointer;
+            border-radius:100%;
+        }
+        .frontcard{
+    	    position: absolute;
+    	    height: 100%;
+    	    width: 100%;
+    	    backface-visibility: hidden;
+    	    -webkit-backface-visibility: hidden;
+    	    background-color:#E5D8D8;
+            border-radius:100%;
+        }
+        .frontfacefont{
+            font-family:'Bookman Old Style';
+            font-size: 20px;
+            padding: 10px 16px;
+            color:#262644;
+            font-weight:bold;
+        }
+        .backcard{
+    	    position: absolute;
+    	    height: 100%;
+    	    width: 100%;
+    	    backface-visibility: hidden;
+    	    -webkit-backface-visibility: hidden;
+    	    background-color:#B97116;
+    	    transform: rotateY(180deg);
+    	    -webkit-transform: rotateY(180deg);
+            border-radius:100%;
+        }
+        .backfacefont{
+            font-family:'Arial Rounded MT Bold';
+            font-size: 20px;
+            padding: 10px 16px;
+            color:white;
+        }
+        .getstarted{
+            padding: 15px 75px; 
+            font-size: 20pt; 
+            font-family:'Helvetica'; 
+            font-weight:bold; 
+            color:white; 
+            background-color:#1E9139; 
+            border-width:0; 
+            border-radius: 16px;
+            cursor:pointer;
+            position:relative;
+            top:-120px;
+        }
+        .getstarted:hover{
+            background-color:#166E2A;
+        }
+
+        .footer{
+            height: 250px;
+            width:100%;
+            background-color:#19696F;
+        }
+    </style>
+</head>
+<body>
+    <div style="width:100%; background-image:url(images/home-background.jpg); background-size:cover; background-attachment:fixed;">
+        <img src="images/logo.png" class="logo" />
+        <table style="width:100%; border:0px; border-spacing:0px;">
+            <tr>
+                <td width="10%"></td>
+                <td width="80%">
+                    <br /><br /><br /><br />
+                    <div class="quote">
+                        Time stays long enough<br />for those who use it.<br />
+                    </div>
+                    <hr align="left" style="width:73%; height:3px; background-color:white;" />
+                    <div style="font-size:25px; color:gainsboro; font-family:'Bookman Old Style';">Schedule your work, birthday, anniversary, party with us.</div><br />
+                    <label style="font-size:25px; color:gainsboro; font-family:'Bookman Old Style';">#scheduleit</label>
+                    <br /><br /><br />
+                    <a href="login.aspx"><input type="button" value="Login with us" class="btnface" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="registration.aspx"><input type="button" value="Sign Up" class="btnface" /></a>
+                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                </td>
+                <td width="10%"></td>
+            </tr>
+        </table>
+    </div>
+    <center>
+        <div style="width:100%; background-color:#F0E6E6;">
+            <br /><br />
+            <table style="width:85%; border:0px; border-spacing:0px;">
+                <tr>
+                    <td width="33%">
+                        <center>
+                            <div class="containerbox">
+                                <div class="innercard">
+                                    <div class="frontcard" style="text-align: center;">
+                                        <br /><img src="images/homeflip1.png" height="40%" width="40%" />
+                                        <p class="frontfacefont">Schedule your work</p>
+                                    </div>
+                                    <div class="backcard" style="text-align: center;">
+                                        <p class="backfacefont"><br /><br />Schedule your work, meeting, party, birthday reminder etc.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </center>
+                    </td>
+                    <td width="33%">
+                        <center>
+                            <div class="containerbox">
+                                <div class="innercard">
+                                    <div class="frontcard" style="text-align: center;">
+                                        <br /><img src="images/homeflip2.png" height="40%" width="40%" />
+                                        <p class="frontfacefont">Share schedule with group</p>
+                                    </div>
+                                    <div class="backcard" style="text-align: center;">
+                                        <p class="backfacefont"><br /><br />Schedule get together reminder, party reminder with your family &amp; friends</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </center>
+                    </td>
+                    <td width="33%">
+                        <center>
+                            <div class="containerbox">
+                                <div class="innercard">
+                                    <div class="frontcard" style="text-align: center;">
+                                        <br /><img src="images/homeflip3.png" height="40%" width="40%" />
+                                        <p class="frontfacefont">Get notified on time</p>
+                                    </div>
+                                    <div class="backcard" style="text-align: center;">
+                                        <p class="backfacefont"><br /><br />Get your reminder notification on your phone via SMS</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+            <br /><br />
+        </div>
+        <div style="width:100%; background-image:url(images/home-background2.jpeg); background-size:cover; background-attachment:fixed;">
+            <br /><br /><br /><br />
+            <div style="width:80%; background-color:black; opacity:0.85; border-radius:20px;">
+                <br /><p style="font-family:'Helvetica'; font-size:39pt; color:white;">The operations excellence platform</p>
+                <p style="font-family:'Helvetica'; font-size:18pt; color:white; padding: 0px 150px;">We help groups to create and run efficient scheduling processes in our fast, intuitive and powerful platform.</p>
+                <br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+            <a href="login.aspx"><input type="button" value="Get started" class="getstarted" /></a>
+            <br />
+        </div>
+        <center>
+            <div class="footer">
+                <br /><br /><br /><br /><br /><br /><br />
+                <table style="width:80%;">
+                    <tr>
+                        <td>
+                            <hr style="width:100%;" />
+                            <div style="float:right; display:inline-block;">
+                                <a href="#"><img src="icons/Facebook.png" /></a>&nbsp;
+                                <a href="#"><img src="icons/Instagram.png" /></a>&nbsp;
+                                <a href="#"><img src="icons/Linkedin.png" /></a>&nbsp;
+                                <a href="#"><img src="icons/Youtube.png" /></a>&nbsp;
+                                <a href="#"><img src="icons/Twitter.png" /></a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="background-color:#2B2A29; color:white; padding:20px;">
+                &copy;&nbsp;Copyright 2018 | Scheduleit Ltd.
+            </div>
+        </center>
+    </center>
+</body>
+</html>

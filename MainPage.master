@@ -1,0 +1,384 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MainPage.master.cs" Inherits="MainPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="shortcut icon" href="/icons/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="mainpage.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style type="text/css">
+        #feedback {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          z-index: 99;
+          font-size: 15px;
+          border: none;
+          outline: none;
+          background-color: #5F3109;
+          color: white;
+          cursor: pointer;
+          padding: 15px;
+          border-radius: 8px;
+        }
+        #btntop{
+            position:fixed; 
+            background-color:#6C4C0B; 
+            border-radius: 8px; 
+            border:none; 
+            outline:none; 
+            cursor:pointer; 
+            z-index: 99; 
+            font-size: 15px; 
+            padding:15px 25px; 
+            bottom:20px; 
+            left:20px; 
+            color:white;
+            display: none;
+        }
+        #btntop:hover{
+            background-color:#5E440D; 
+        }
+        #feedback:hover{
+          background-color: #3D2006;
+        }
+        .modalDialogFeedback {
+	        position: fixed;
+	        font-family: Arial, Helvetica, sans-serif;
+	        top: 0;
+	        right: 0;
+	        bottom: 0;
+	        left: 0;
+	        background:rgba(0,0,0,0.8) ;
+	        z-index: 99999;
+	        opacity:0;
+	        -webkit-transition: opacity 400ms ease-in;
+	        -moz-transition: opacity 400ms ease-in;
+	        transition: opacity 400ms ease-in;
+	        pointer-events: none;
+        }
+
+        .modalDialogFeedback:target {
+	        opacity:1;
+	        pointer-events: auto;
+        }
+
+        .modalDialogFeedback > div {
+	        width: 400px;
+	        position: relative;
+	        margin: 10% auto;
+	        padding: 5px 20px 13px 20px;
+	        border-radius: 10px;
+	        background: #fff;
+	        background: -moz-linear-gradient(#fff, #999);
+	        background: -webkit-linear-gradient(#fff, #999);
+	        background: -o-linear-gradient(#fff, #999);
+        }
+
+        .FeedbackClose {
+	        background: #606061;
+	        color: #FFFFFF;
+	        line-height: 25px;
+	        position: absolute;
+	        right: -12px;
+	        text-align: center;
+	        top: -10px;
+	        width: 24px;
+	        text-decoration: none;
+	        font-weight: bold;
+	        -webkit-border-radius: 12px;
+	        -moz-border-radius: 12px;
+	        border-radius: 12px;
+	        -moz-box-shadow: 1px 1px 3px #000;
+	        -webkit-box-shadow: 1px 1px 3px #000;
+	        box-shadow: 1px 1px 3px #000;
+        }
+
+        .FeedbackClose:hover { 
+            background: #00d9ff;
+        }
+        .inputstyleFeedback{
+            width:80%;
+            padding: 15px;
+            border-radius: 8px;
+            margin:5px 0;
+            font-family:'HoloLens MDL2 Assets';
+            font-size:15px;
+            border:1px solid #a1a3a3;
+        }
+        .inputstyleFeedback:focus{
+            outline:0;
+        }
+
+        #btnpostfeedback{
+            border:0;
+            outline:0;
+            background-color:#43734A;
+            color:white;
+            padding:8px 40px;
+            border-radius:5px;
+            font-size:20px;
+            cursor:pointer;
+            font-weight:bold;
+        }
+        #btnpostfeedback:hover{
+            background-color:#2C4A30;
+        }
+
+        .modalDialogChangePassword {
+	        position: fixed;
+	        font-family: Arial, Helvetica, sans-serif;
+	        top: 0;
+	        right: 0;
+	        bottom: 0;
+	        left: 0;
+	        background:rgba(0,0,0,0.8) ;
+	        z-index: 99999;
+	        opacity:0;
+	        -webkit-transition: opacity 400ms ease-in;
+	        -moz-transition: opacity 400ms ease-in;
+	        transition: opacity 400ms ease-in;
+	        pointer-events: none;
+        }
+
+        .modalDialogChangePassword:target {
+	        opacity:1;
+	        pointer-events: auto;
+        }
+
+        .modalDialogChangePassword > div {
+	        width: 500px;
+	        position: relative;
+	        margin: 10% auto;
+	        padding: 5px;
+	        border-radius: 10px;
+	        background-color: white;
+        }
+
+       .closeChangePassword{
+           text-decoration:none;
+           color:#DFD4D4;
+           font-weight:bold;
+           font-size:18px;
+       }
+
+       input:focus{
+           outline:0;
+       }
+
+       .texteditinput{
+           padding:5px;
+           border-radius:5px;
+           width:95%;
+           margin:3px;
+           border:1px solid #a1a3a3;
+           font-family:'HoloLens MDL2 Assets';
+           font-size:15px;
+       }
+
+       .btnchangepassword{
+           padding:5px; 
+           height:40px; 
+           width:160px; 
+           border-radius:6px; 
+           border:1px solid #a1a3a3; 
+           font-weight:bold; 
+           cursor:pointer; 
+           background-color:white;
+           float:right;
+       }
+
+        .btnchangepassword:hover {
+            background-color: #E0D2CE;
+        }
+
+        .txtsearch{
+            width:45px; 
+            padding:4px;
+            border:1px solid white;
+            -webkit-transition: width .35s ease-in-out;
+            transition: width .35s ease-in-out;
+        }
+        .txtsearch:focus{
+            width:170px;
+        }
+    </style>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <form id="frmmain" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="header">
+            <img src="images/logo.png" class="logo" />
+            <div style="position:absolute; top:0; right:8px; z-index:100;">
+                <br />
+                <asp:TextBox runat="server" ID="txtsearch" CssClass="txtsearch" placeholder="Search your tasks or groups" /><asp:ImageButton ID="btnsearch" runat="server" ImageUrl="~/icons/search.png" style="width:26px; position:relative; top:8px;" OnClick="btnsearch_Click" />&nbsp;&nbsp;
+                <font color="white">Hello</font>&nbsp;<asp:Label runat="server" ID="lblname" style="color:white; font-weight:200;" /><font color="white">!</font>&nbsp;&nbsp;
+                <asp:Button runat="server" ID="btnsettings" Text="Settings" OnClick="btnsettings_Click" />&nbsp;&nbsp;
+                <asp:Button runat="server" ID="btnlogout" Text="Log out" OnClick="btnlogout_Click" />&nbsp;&nbsp;
+            </div>
+        </div>
+
+        <div id="navbar">
+            <a href="home.aspx">Home</a>
+            <a href="profile.aspx">Profile</a>
+            <a href="#openChangePassword">Change password</a>
+            <a href="feedback.aspx">Feedback forum</a>
+        </div>
+
+        <div class="sidenav">
+            <a href="schedule.aspx">Schedule task</a>
+            <a href="createGroup.aspx">Create group</a>
+            <a href="groups.aspx">Group list</a>
+            <a href="contact.aspx">Contact</a>
+        </div>
+
+        <script type="text/javascript">
+        function passwordChangeSuccessAlert(){
+            swal({
+              title: "Success !",
+              text: "Your password has been changed successfully.",
+              icon: "success",
+              button: "OK",
+            });
+        }
+    </script>
+        <div id="openChangePassword" class="modalDialogChangePassword">
+	        <div>
+                <div style="width:475px; padding:12px; border-radius:10px; background-color:#8A4029;">
+                    <div style="float:right;"><a href="#closeChangePassword" title="Close" class="closeChangePassword">&times;</a></div>
+                    <div style="font-size:17px; font-weight:bolder; color:white;">CHANGE PASSWORD</div>
+                </div>
+                <div style="width:475px; padding:12px; border-radius:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td style="width:40%;">
+                                <strong>Current Password:</strong>
+                            </td>
+                            <td style="width:60%;">
+                                <asp:TextBox runat="server" ID="txtcurrentpw" CssClass="texteditinput" TextMode="Password" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:40%;">
+                                <strong>New Password:</strong>
+                            </td>
+                            <td style="width:60%;">
+                                <asp:TextBox runat="server" ID="txtnewpw" CssClass="texteditinput" TextMode="Password" title="Password must contain at least 6 characters, including uppercase, lowercase and numbers" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : ''); if(this.checkValidity()) form.txtreenterpw.pattern = RegExp.escape(this.value);" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:40%;">
+                                <strong>Confirm Password:</strong>
+                            </td>
+                            <td style="width:60%;">
+                                <asp:TextBox runat="server" ID="txtconfirmpw" CssClass="texteditinput" TextMode="Password" title="Please enter the same Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" />
+                            </td>
+                        </tr>
+                    </table>
+                    <br /><hr />
+                    <asp:Button runat="server" ID="btnchangepassword" CssClass="btnchangepassword" Text="CHANGE PASSWORD" OnClick="btnchangepassword_Click" />
+                    <br /><br />
+                </div>
+	        </div>
+        </div>
+        
+        <table style="width: 100%; border: 0px; border-spacing: 0px;">
+            <tr>
+                <td style="width: 10%; background-image: url(images/8604.jpg); margin: 0px;"></td>
+                <td style="width: 80%; background-color: #E8DCDA;">
+                    <div style="width: 90%; background-color: white; margin: 5%; border-radius:5px; box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);">
+                        <div style="padding: 2%;">
+
+                            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                            </asp:ContentPlaceHolder>
+
+                        </div>
+                    </div>
+                </td>
+                <td style="width: 10%; background-image: url(images/8604.jpg);"></td>
+            </tr>
+        </table>
+
+
+        <script type="text/javascript">
+            window.onscroll = function () {
+                myScrollFunction();
+            }
+
+            var navbar = document.getElementById("navbar");
+            var sticky = navbar.offsetTop;
+
+            function myScrollFunction() {
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("btntop").style.display = "block";
+                } else {
+                    document.getElementById("btntop").style.display = "none";
+                }
+            }
+        </script>
+    
+    <center>
+    <div class="footer">
+            <br /><br /><br /><br /><br /><br /><br />
+            <table style="width:80%;">
+                <tr>
+                    <td>
+                        <hr style="width:100%;" />
+                        <div style="float:right; display:inline-block;">
+                            <a href="#"><img src="icons/Facebook.png" /></a>&nbsp;
+                            <a href="#"><img src="icons/Instagram.png" /></a>&nbsp;
+                            <a href="#"><img src="icons/Linkedin.png" /></a>&nbsp;
+                            <a href="#"><img src="icons/Youtube.png" /></a>&nbsp;
+                            <a href="#"><img src="icons/Twitter.png" /></a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+    </div>
+    <div style="background-color:#2B2A29; color:white; padding:20px;">
+        &copy;&nbsp;Copyright 2018 | Scheduleit Ltd.
+    </div>
+    </center>
+
+    <script type="text/javascript">
+        function feedbackSuccessAlert(){
+            swal({
+              title: "Success !",
+              text: "Your feedback has been posted successfully.",
+              icon: "success",
+              button: "OK",
+            });
+        }
+    </script>
+    <a href="#openFeedback"><div ID="feedback">Feedback &rang;&rang;</div></a>
+    <button id="btntop" onclick="$('html, body').animate({ scrollTop: 0 }, 'slow');">TOP</button>
+
+    <div id="openFeedback" class="modalDialogFeedback">
+	<div>
+		<a href="#FeedbackClose" title="Close" class="FeedbackClose">&times;</a>
+		<center>
+            <br />
+            <h3>Leave your feedback here</h3>
+            <asp:TextBox runat="server" ID="txttitle" placeholder="Title"  CssClass="inputstyleFeedback"/><br /><br />
+            <asp:TextBox runat="server" ID="txtdescription" placeholder="Description" CssClass="inputstyleFeedback" TextMode = "MultiLine" style = "resize:none; height:90px;"/><br /><br />
+            <asp:Button runat="server" ID="btnpostfeedback" Text="POST" OnClick="btnpostfeedback_Click" /><br /><br />
+        </center>
+	</div>
+    </div>
+    
+    </form>
+</body>
+</html>
